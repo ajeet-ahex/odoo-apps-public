@@ -14,8 +14,7 @@
             are automatically moved to a backorder using Odoo's native flow.
         </p>
         <p>
-            <b>Supported:</b> Incoming Transfers & Internal Transfers<br/>
-            <b>Not affecting:</b> Delivery Orders & Manufacturing
+            <b>Supported:</b> All Transfers<br/>     
         </p>
     </div>
 </section>
@@ -80,22 +79,6 @@
     </div>
 </section>
 
-<section class="oe_container">
-    <div class="oe_row oe_spaced">
-        <h4>Technical Details</h4>
-        <p>
-            The module temporarily sets <code>qty_done = 0</code> for unselected lines
-            before validation, allowing Odoo's standard backorder process to handle them.
-        </p>
-<pre>
-if partial_selection:
-    unselected.qty_done = 0
-    super().button_validate()
-</pre>
-
-        <p><b>New Field:</b> <code>stock.move.is_selected_for_transfer</code></p>
-    </div>
-</section>
 
 <section class="oe_container">
     <div class="oe_row oe_spaced">
@@ -136,9 +119,3 @@ if partial_selection:
     </div>
 </section>
 
-<section class="oe_container">
-    <div class="oe_row oe_spaced oe_centeralign">
-        <h4>License</h4>
-        <p>LGPL-3 - Free to use and modify</p>
-    </div>
-</section>
