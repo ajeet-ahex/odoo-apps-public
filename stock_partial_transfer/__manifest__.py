@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 {
-    'name': 'Stock Partial Transfer by Product Selection',
+    'name': 'Stock Partial Transfer by Item Selection',
     'version': '19.0.1.0.0',
     'category': 'Inventory/Inventory',
-    'summary': 'Select specific products to transfer; unselected products create a backorder automatically.',
+    'summary': 'Select specific items to transfer; unselected items create a backorder automatically.',
     'description': """
         This module adds a checkbox column to the detailed operations / move lines
         in stock picking (transfers).  When the user validates a transfer:
