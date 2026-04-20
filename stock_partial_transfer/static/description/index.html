@@ -11,7 +11,7 @@
         <p>
             This module adds a <b>"Transfer"</b> checkbox in stock picking operations.
             You can choose which products to transfer immediately, while unselected ones
-            are automatically moved to a backorder using Odoo’s native flow.
+            are automatically moved to a backorder using Odoo's native flow.
         </p>
         <p>
             <b>Supported:</b> Incoming Transfers & Internal Transfers<br/>
@@ -52,30 +52,30 @@
                     <td>Wireless Mouse</td>
                     <td>10</td>
                     <td>10</td>
-                    <td>✔</td>
+                    <td>&#10004;</td>
                     <td>Transferred</td>
                 </tr>
                 <tr>
                     <td>Keyboard</td>
                     <td>5</td>
                     <td>0</td>
-                    <td>✘</td>
+                    <td>&#10008;</td>
                     <td>Backorder</td>
                 </tr>
                 <tr>
                     <td>USB Cable</td>
                     <td>20</td>
                     <td>12</td>
-                    <td>✔</td>
+                    <td>&#10004;</td>
                     <td>Partial + Backorder</td>
                 </tr>
             </tbody>
         </table>
 
         <ul>
-            <li>All selected → Normal transfer</li>
-            <li>None selected → Normal transfer</li>
-            <li>Partial selection → Backorder created</li>
+            <li>All selected &rarr; Normal transfer</li>
+            <li>None selected &rarr; Normal transfer</li>
+            <li>Partial selection &rarr; Backorder created</li>
         </ul>
     </div>
 </section>
@@ -85,7 +85,7 @@
         <h4>Technical Details</h4>
         <p>
             The module temporarily sets <code>qty_done = 0</code> for unselected lines
-            before validation, allowing Odoo’s standard backorder process to handle them.
+            before validation, allowing Odoo's standard backorder process to handle them.
         </p>
 <pre>
 if partial_selection:
