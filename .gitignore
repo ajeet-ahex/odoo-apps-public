@@ -1,0 +1,74 @@
+# ======================
+# Python
+# ======================
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# ======================
+# Odoo runtime files
+# ======================
+*.log
+*.pid
+*.db
+*.sqlite3
+
+# Filestore & sessions (NEVER commit)
+.filestore/
+data_dir/
+sessions/
+
+# ======================
+# Environment
+# ======================
+.env
+.env/
+venv/
+venv*/
+.envrc
+
+# ======================
+# IDE / Editors
+# ======================
+.vscode/
+.idea/
+*.code-workspace
+
+# Optional (only if you use these)
+.run/
+.ai/
+*.iml
+
+
+# ======================
+# OS junk
+# ======================
+.DS_Store
+Thumbs.db
+
+# ======================
+# Temp files
+# ======================
+*.swp
+*.bak
+*.tmp
+
+# ======================
+# Node (if assets used)
+# ======================
+node_modules/
+
+# ======================
+# Build / dist
+# ======================
+dist/
+build/
+*.egg-info/
+
+# ======================
+# Testing
+# ======================
+.coverage
+htmlcov/
+*.conf

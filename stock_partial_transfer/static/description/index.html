@@ -1,0 +1,144 @@
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <h2 class="oe_slogan">Stock Partial Transfer by Product Selection</h2>
+        <h3 class="oe_slogan">Select products to transfer now, rest go to backorder automatically</h3>
+    </div>
+</section>
+
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <h4>Overview</h4>
+        <p>
+            This module adds a <b>"Transfer"</b> checkbox in stock picking operations.
+            You can choose which products to transfer immediately, while unselected ones
+            are automatically moved to a backorder using Odoo’s native flow.
+        </p>
+        <p>
+            <b>Supported:</b> Incoming Transfers & Internal Transfers<br/>
+            <b>Not affecting:</b> Delivery Orders & Manufacturing
+        </p>
+    </div>
+</section>
+
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <h4>Key Features</h4>
+        <ul>
+            <li>Select specific products to transfer</li>
+            <li>Automatic backorder for unselected products</li>
+            <li>Works with Odoo's native backorder wizard</li>
+            <li>Handles partial quantities (shortages)</li>
+            <li>No impact on accounting or valuation</li>
+            <li>Lightweight and fast implementation</li>
+        </ul>
+    </div>
+</section>
+
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <h4>How It Works</h4>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Demand</th>
+                    <th>Done</th>
+                    <th>Transfer</th>
+                    <th>Result</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Wireless Mouse</td>
+                    <td>10</td>
+                    <td>10</td>
+                    <td>✔</td>
+                    <td>Transferred</td>
+                </tr>
+                <tr>
+                    <td>Keyboard</td>
+                    <td>5</td>
+                    <td>0</td>
+                    <td>✘</td>
+                    <td>Backorder</td>
+                </tr>
+                <tr>
+                    <td>USB Cable</td>
+                    <td>20</td>
+                    <td>12</td>
+                    <td>✔</td>
+                    <td>Partial + Backorder</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <ul>
+            <li>All selected → Normal transfer</li>
+            <li>None selected → Normal transfer</li>
+            <li>Partial selection → Backorder created</li>
+        </ul>
+    </div>
+</section>
+
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <h4>Technical Details</h4>
+        <p>
+            The module temporarily sets <code>qty_done = 0</code> for unselected lines
+            before validation, allowing Odoo’s standard backorder process to handle them.
+        </p>
+<pre>
+if partial_selection:
+    unselected.qty_done = 0
+    super().button_validate()
+</pre>
+
+        <p><b>New Field:</b> <code>stock.move.is_selected_for_transfer</code></p>
+    </div>
+</section>
+
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <h4>Compatibility</h4>
+        <ul>
+            <li>Odoo 19 Community & Enterprise</li>
+            <li>Works with sale_stock</li>
+            <li>Works with purchase_stock</li>
+            <li>Works with mrp</li>
+            <li>Works with landed costs</li>
+        </ul>
+    </div>
+</section>
+
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <h4>Installation</h4>
+        <ol>
+            <li>Copy module to addons folder</li>
+            <li>Restart Odoo</li>
+            <li>Update Apps List</li>
+            <li>Install the module</li>
+        </ol>
+    </div>
+</section>
+
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <h4>Usage</h4>
+        <ol>
+            <li>Open a transfer</li>
+            <li>Go to Operations tab</li>
+            <li>Select products using checkbox</li>
+            <li>Enter quantities</li>
+            <li>Click Validate</li>
+            <li>Backorder will be created automatically</li>
+        </ol>
+    </div>
+</section>
+
+<section class="oe_container">
+    <div class="oe_row oe_spaced oe_centeralign">
+        <h4>License</h4>
+        <p>LGPL-3 - Free to use and modify</p>
+    </div>
+</section>
